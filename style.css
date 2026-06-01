@@ -1,52 +1,285 @@
-body {
-    font-family: Arial, sans-serif;
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+body {
+    background-color: #f7f9fb;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Шапка сайту та Навігація */
 header {
-    background-color: #333;
-    padding: 1rem;
+    background-color: #1a1a1a;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-right: 15px;
-    font-weight: bold;
-}
-nav a:hover {
-    text-decoration: underline;
-}
-main {
-    padding: 2rem;
-    max-width: 800px;
+
+nav {
+    max-width: 1200px;
     margin: 0 auto;
-    background: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin-top: 2rem;
-    border-radius: 8px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
 }
+
+/* Стилізація посилань (меню) */
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    color: #ff5722;
+    background-color: rgba(255, 87, 34, 0.1);
+}
+
+/* Головний контейнер для динамічного контенту (SPA) */
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    min-height: 70vh;
+}
+
+/* Заголовки та тексти */
+h1 {
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.3rem;
+    color: #222;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+    color: #444;
+}
+
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
+}
+
+/* Сітка для карток товарів (Адаптивна) */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Картка товару */
+.product-card {
+    border: 1px solid #e3e8ec;
+    border-radius: 14px;
+    padding: 25px;
+    text-align: center;
+    position: relative;
+    background: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: #ff5722;
+}
+
+/* Яскраві бейджі на товарах */
+.product-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #ff5722;
+    color: white;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Опис товару (обмеження за висотою для рівності карток) */
+.product-desc {
+    font-size: 0.88rem;
+    color: #777;
+    margin: 10px 0 20px 0;
+    height: 50px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* Ціна товару */
+.product-price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ff5722;
+    margin-bottom: 15px;
+}
+
+/* Кнопка "Купити" */
+.buy-btn {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 100%;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.buy-btn:hover {
+    background-color: #e64a19;
+}
+
+.buy-btn:active {
+    transform: scale(0.98);
+}
+
+/* Стилі для сторінки Контактів та Форми */
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    max-width: 400px;
+    gap: 15px;
+    max-width: 500px;
+    margin-top: 20px;
+    background: #fcfdfe;
+    padding: 25px;
+    border: 1px solid #e9eff4;
+    border-radius: 12px;
 }
-input, textarea, button {
-    padding: 10px;
+
+label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: -5px;
+}
+
+input, textarea {
+    padding: 12px;
     font-size: 1rem;
+    border: 1px solid #ccd6dd;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
 }
-button {
-    background-color: #007bff;
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #ff5722;
+    box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.15);
+}
+
+form button[type="submit"] {
+    background-color: #1a1a1a;
     color: white;
     border: none;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #0056b3;
-}
-.success-msg {
-    color: green;
+    padding: 12px;
+    font-size: 1rem;
     font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
     margin-top: 10px;
+}
+
+form button[type="submit"]:hover {
+    background-color: #333333;
+}
+
+/* Повідомлення про успішне збереження форми у State */
+.success-msg {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 5px solid #4caf50;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+/* Кнопка скидання стану форми */
+#reset-form-btn {
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+#reset-form-btn:hover {
+    background-color: #d5d5d5;
+}
+
+/* Адаптивність для мобільних екранів (смартфонів) */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+    nav a {
+        font-size: 0.9rem;
+        padding: 4px 8px;
+    }
+    main {
+        padding: 15px;
+        margin: 15px;
+        border-radius: 10px;
+    }
+    h1 {
+        font-size: 1.7rem;
+    }
+    .products-grid {
+        gap: 20px;
+    }
 }
